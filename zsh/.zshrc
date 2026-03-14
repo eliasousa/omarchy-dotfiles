@@ -132,6 +132,9 @@ if [ $? -eq 2 ]; then
 fi
 ssh-add ~/.ssh/id_ed25519 2>/dev/null
 
+# General aliases
+alias reloadcli="source ~/.zshrc"
+
 # Git aliases
 alias gst="git status"
 alias gco="git checkout"
