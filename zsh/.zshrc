@@ -114,6 +114,12 @@ fi
 alias gst="git status"
 alias gco="git checkout"
 
+# Docker Compose aliases
+dc() { docker compose "$@" }
+alias dc-up="docker compose up -d --wait"
+alias dc-down="docker compose down"
+dc-claude() { docker compose exec "$1" bash -ic claude }
+
 # Quick cd into repos under ~/code
 c() { cd "$HOME/code/$1" }
 _c() { compadd $(ls "$HOME/code/") }
