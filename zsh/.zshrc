@@ -109,6 +109,7 @@ if [ $? -eq 2 ]; then
   rm -f "$SSH_AUTH_SOCK"
   eval "$(ssh-agent -a "$SSH_AUTH_SOCK")" > /dev/null
 fi
+ssh-add ~/.ssh/id_ed25519 2>/dev/null
 
 # Git aliases
 alias gst="git status"
