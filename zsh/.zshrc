@@ -102,5 +102,19 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-export SSH_AUTH_SOCK=/run/user/1000/gnupg/S.gpg-agent.ssh
+# SSH Agent - start once and reuse across terminal sessions
+export SSH_AUTH_SOCK="$HOME/.ssh/agent.sock"
+ssh-add -l &>/dev/null
+if [ $? -eq 2 ]; then
+  rm -f "$SSH_AUTH_SOCK"
+  eval "$(ssh-agent -a "$SSH_AUTH_SOCK")" > /dev/null
+fi
 
+# Git aliases
+alias gst="git status"
+alias gco="git checkout"
+
+# Quick cd into repos under ~/code
+c() { cd "$HOME/code/$1" }
+_c() { compadd $(ls "$HOME/code/") }
+compdef _c c
