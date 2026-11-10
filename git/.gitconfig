@@ -10,3 +10,14 @@
 [user]
 	name = Elias Sousa
 	email = humb.eliasj@gmail.com
+	signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIMKtkI6qvGWEifpGvn7nDXJnTBA38VG2K6V0Ntw0Rwkn humb.eliasj@gmail.com
+[commit]
+	gpgsign = true
+[gpg]
+	format = ssh
+[gpg "ssh"]
+	allowedSignersFile = /home/eliasousa/.ssh/allowed_signers
+[includeIf "hasconfig:remote.*.url:git@github.com:syngenta-digital/**"]
+	path = ~/.gitconfig-syngenta
+[includeIf "hasconfig:remote.*.url:https://github.com/syngenta-digital/**"]
+	path = ~/.gitconfig-syngenta
