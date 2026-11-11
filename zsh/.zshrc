@@ -148,3 +148,6 @@ dc-claude() { docker compose exec "$1" bash -ic claude }
 c() { cd "$HOME/code/$1" }
 _c() { compadd $(ls "$HOME/code/") }
 compdef _c c
+
+# Dev containers (compose): the host SSH agent socket to forward, same one the block above starts
+export SSH_AUTH_SOCK_HOST="$HOME/.ssh/agent.sock"
